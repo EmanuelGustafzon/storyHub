@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import type { AppProps } from 'next/app';
 import Navbar from '../components/NavBar';
-// import 'bootstrap/dist/css/bootstrap.css';
+import AppPage from '../app/page';
+import 'bootstrap/dist/css/bootstrap.css';
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -30,6 +31,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <div>
       <Navbar isLoggedIn={isLoggedIn} />
+      {/* <AppPage /> */}
       <Component {...pageProps} isLoggedIn={isLoggedIn} onLogin={handleLogin} onLogout={handleLogout} apiUrl={apiUrl}/>
     </div>
   );

@@ -1,14 +1,17 @@
 import React from 'react';
-import HomePage from '../pages/HomePage'
-
+import HomePage from '../pages/HomePage';
+import Navbar from '../components/NavBar';
+import 'bootstrap/dist/css/bootstrap.css';
 const AppPage = () => {
   return (
     <div>
-      <h1>This is the App Page</h1>
+      <Navbar/>
       <HomePage />
     </div>
   );
 };
 
 export default AppPage;
+
+
 
