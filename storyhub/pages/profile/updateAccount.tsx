@@ -1,0 +1,101 @@
+import { useState, ChangeEvent } from 'react';
+import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.css';
+import { Router, useRouter } from 'next/router';
+
+interface UpdateProfileForm {
+  oldUsername: string;
+  oldPassword: string;
+  newUsername: string;
+  newPassword: string;
+  repeatNewPassword: string;
+}
+
+const UpdateAccount: React.FC<{ apiUrl: string }> = ({ apiUrl })=> {
+  const router = useRouter()
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [updateFormData, setUpdateFormData] = useState<UpdateProfileForm>({
+    oldUsername: '',
+    oldPassword: '',
+    newUsername: '',
+    newPassword: '',
+    repeatNewPassword: '',
+  });
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setUpdateFormData((prevState) => ({
+      ...prevState,
+      [name]: value.trim(),
+    }));
+  };
+
+  const handleUpdateProfile = async () => {
+    try {
+      await axios.put(`${apiUrl}/accounts/profile/update`, updateFormData, {withCredentials: true});
+      router.push('/profile')
+    } catch (error) {
+      console.error(error);
+      // Show error message or handle the error
+    }
+  };
+
+  const handleDeleteAccount = async () => {
+    setShowDeleteModal(true);
+  };
+
+  const confirmDeleteAccount = async () => {
+    try {
+      await axios.delete(`${apiUrl}/accounts/profile/delete`, { withCredentials: true });
+      router.push('/blog');
+    } catch (error) {
+      console.error(error);
+      // Show error message or handle the error
+    }
+  };
+
+  const cancelDeleteAccount = () => {
+    setShowDeleteModal(false);
+  };
+
+  return (
+    <>
+    <div>
+      <h1>Update Profile</h1>
+      <form>
+        <label htmlFor="oldUsername">Old Username:</label>
+        <input type="text" id="oldUsername" name="oldUsername" onChange={handleChange} />
+
+        <label htmlFor="oldPassword">Old Password:</label>
+        <input type="password" id="oldPassword" name="oldPassword" onChange={handleChange} />
+
+        <label htmlFor="newUsername">New Username:</label>
+        <input type="text" id="newUsername" name="newUsername" onChange={handleChange} />
+
+        <label htmlFor="newPassword">New Password:</label>
+        <input type="password" id="newPassword" name="newPassword" onChange={handleChange} />
+
+        <label htmlFor="repeatNewPassword">Repeat New Password:</label>
+        <input type="password" id="repeatNewPassword" name="repeatNewPassword" onChange={handleChange} />
+
+        <button type="button" onClick={handleUpdateProfile}>Update Profile</button>
+      </form>
+
+      <button type="button" onClick={handleDeleteAccount}>Delete Account</button>
+    </div>
+
+    {showDeleteModal && (
+      <div>
+      <button type="button" className="btn btn-secondary" onClick={cancelDeleteAccount}>
+         Cancel
+      </button>
+    <button type="button" className="btn btn-danger" onClick={confirmDeleteAccount}>
+    Delete
+    </button>
+    </div>
+      )}
+    </>
+  );
+};
+
+export default UpdateAccount;
