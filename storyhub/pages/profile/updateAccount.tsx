@@ -66,39 +66,53 @@ const UpdateAccount: React.FC<LogoutPageProps> = ({ apiUrl, onLogout })=> {
 
   return (
     <>
-    <div>
-      <h1>Update Profile</h1>
-      <form>
-        <label htmlFor="oldUsername">Old Username:</label>
-        <input type="text" id="oldUsername" name="oldUsername" onChange={handleChange} />
-
-        <label htmlFor="oldPassword">Old Password:</label>
-        <input type="password" id="oldPassword" name="oldPassword" onChange={handleChange} />
-
-        <label htmlFor="newUsername">New Username:</label>
-        <input type="text" id="newUsername" name="newUsername" onChange={handleChange} />
-
-        <label htmlFor="newPassword">New Password:</label>
-        <input type="password" id="newPassword" name="newPassword" onChange={handleChange} />
-
-        <label htmlFor="repeatNewPassword">Repeat New Password:</label>
-        <input type="password" id="repeatNewPassword" name="repeatNewPassword" onChange={handleChange} />
-
-        <button type="button" onClick={handleUpdateProfile}>Update Profile</button>
-      </form>
-
-      <button type="button" onClick={handleDeleteAccount}>Delete Account</button>
-    </div>
-
-    {showDeleteModal && (
       <div>
-      <button type="button" className="btn btn-secondary" onClick={cancelDeleteAccount}>
-         Cancel
-      </button>
-    <button type="button" className="btn btn-danger" onClick={confirmDeleteAccount}>
-    Delete
-    </button>
-    </div>
+        <h1 className="mb-4">Update Profile</h1>
+        <form>
+          <div className="mb-3">
+            <label htmlFor="oldUsername" className="form-label">Old Username:</label>
+            <input type="text" id="oldUsername" name="oldUsername" onChange={handleChange} className="form-control" />
+          </div>
+  
+          <div className="mb-3">
+            <label htmlFor="oldPassword" className="form-label">Old Password:</label>
+            <input type="password" id="oldPassword" name="oldPassword" onChange={handleChange} className="form-control" />
+          </div>
+  
+          <div className="mb-3">
+            <label htmlFor="newUsername" className="form-label">New Username:</label>
+            <input type="text" id="newUsername" name="newUsername" onChange={handleChange} className="form-control" />
+          </div>
+  
+          <div className="mb-3">
+            <label htmlFor="newPassword" className="form-label">New Password:</label>
+            <input type="password" id="newPassword" name="newPassword" onChange={handleChange} className="form-control" />
+          </div>
+  
+          <div className="mb-3">
+            <label htmlFor="repeatNewPassword" className="form-label">Repeat New Password:</label>
+            <input type="password" id="repeatNewPassword" name="repeatNewPassword" onChange={handleChange} className="form-control" />
+          </div>
+  
+          <button type="button" onClick={handleUpdateProfile} className="btn btn-primary">
+            Update Profile
+          </button>
+        </form>
+  
+        <button type="button" onClick={handleDeleteAccount} className="btn btn-danger mt-3">
+          Delete Account
+        </button>
+      </div>
+  
+      {showDeleteModal && (
+        <div className="mt-3">
+          <button type="button" className="btn btn-secondary me-2" onClick={cancelDeleteAccount}>
+            Cancel
+          </button>
+          <button type="button" className="btn btn-danger" onClick={confirmDeleteAccount}>
+            Delete
+          </button>
+        </div>
       )}
     </>
   );

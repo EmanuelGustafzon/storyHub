@@ -17,7 +17,6 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
     setApiUrl(fetchedApiUrl);
   }, []);
   
-  console.log(apiUrl)
   const handleLogin = () => {
     setIsLoggedIn(true);
     localStorage.setItem('isLoggedIn', 'true');
@@ -31,8 +30,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <div>
       <Navbar isLoggedIn={isLoggedIn} />
-      {/* <AppPage /> */}
-      <Component {...pageProps} isLoggedIn={isLoggedIn} onLogin={handleLogin} onLogout={handleLogout} apiUrl={apiUrl}/>
+      <Component {...pageProps} isLoggedIn={isLoggedIn} onLogin={handleLogin} onLogout={handleLogout} apiUrl={apiUrl} />
     </div>
   );
 }

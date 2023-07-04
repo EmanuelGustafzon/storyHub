@@ -77,67 +77,78 @@ const CreatePost: React.FC<{ apiUrl: string }> = ({ apiUrl }) => {
 
   return (
     <>
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="title">Title:</label>
-        <input
-          type="text"
-          id="title"
-          name="title"
-          value={postData.title}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="desc">Description/Content:</label>
-        <textarea
-          id="desc"
-          name="desc"
-          value={postData.desc}
-          onChange={handleChange}
-          style={{ whiteSpace: 'pre-line' }}
-        />
-      </div>
-      <div>
-        <label htmlFor="newContributor">Contributors:</label>
-        <input
-          type="text"
-          id="newContributor"
-          name="newContributor"
-          value={postData.newContributor}
-          onChange={handleChange}
-        />
-        <button type="button" onClick={handleAddContributor}>
-          Add
+      <form onSubmit={handleSubmit}>
+        <div className="mb-3">
+          <label htmlFor="title" className="form-label">Title:</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            value={postData.title}
+            onChange={handleChange}
+            className="form-control"
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="desc" className="form-label">Description/Content:</label>
+          <textarea
+            id="desc"
+            name="desc"
+            value={postData.desc}
+            onChange={handleChange}
+            style={{ whiteSpace: 'pre-line' }}
+            className="form-control"
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="newContributor" className="form-label">Contributors:</label>
+          <div className="input-group">
+            <input
+              type="text"
+              id="newContributor"
+              name="newContributor"
+              value={postData.newContributor}
+              onChange={handleChange}
+              className="form-control"
+            />
+            <button type="button" onClick={handleAddContributor} className="btn btn-primary">
+              Add
+            </button>
+          </div>
+        </div>
+        <div>
+          <h4>Current Contributors:</h4>
+          <ul className="list-unstyled">
+            {postData.contributors.map((contributor, index) => (
+              <li key={index}>
+                <span>{contributor}</span>
+                <button type="button" onClick={() => handleRemoveContributor(index)} className="btn btn-danger ms-2">
+                  Remove
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="mb-3">
+          <div className="form-check">
+            <input
+              type="checkbox"
+              id="isPublished"
+              name="isPublished"
+              checked={postData.isPublished}
+              onChange={handlePublishToggle}
+              className="form-check-input"
+            />
+            <label htmlFor="isPublished" className="form-check-label">Publish</label>
+          </div>
+        </div>
+        <button type="submit" className="btn btn-primary">
+          Create Post
         </button>
-      </div>
-      <div>
-        <h4>Current Contributors:</h4>
-        <ul>
-          {postData.contributors.map((contributor, index) => (
-            <li key={index}>
-              <span>{contributor}</span>
-              <button type="button" onClick={() => handleRemoveContributor(index)}>
-                Remove
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div>
-        <label htmlFor="isPublished">Publish:</label>
-        <input
-          type="checkbox"
-          id="isPublished"
-          name="isPublished"
-          checked={postData.isPublished}
-          onChange={handlePublishToggle}
-        />
-      </div>
-      <button type="submit">Create Post</button>
-    </form>
+      </form>
     </>
   );
+  
 };
 
 export default CreatePost;

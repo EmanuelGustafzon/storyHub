@@ -55,7 +55,7 @@ const BlogPostPage: React.FC<{ apiUrl: string }> = ({ apiUrl }) => {
           <div className="card bg-dark mb-3">
             <div className="card-body">
                 <h2 className="card-title text-light">{blogPost.title}</h2>
-              <p className="card-text text-light">{blogPost.desc}</p>
+              <p className="card-text text-secondary">{blogPost.desc}</p>
               <Link href={`/blog/`}className="btn btn-info text-light">back</Link>
             </div>
           </div>

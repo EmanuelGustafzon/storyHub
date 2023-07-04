@@ -60,7 +60,7 @@ const ProfilePage: React.FC<{ apiUrl: string; isLoggedIn: boolean  }> = ({ apiUr
           <div className="card bg-dark mb-3">
             <div className="card-body">
                 <h5 className="card-title text-light">{post.title}</h5>
-              <p className="card-text text-light">{post.desc.split('.').slice(0, 3).join('.')}</p>
+              <p className="card-text text-secondary">{post.desc.split('.').slice(0, 3).join('.')}</p>
               <Link href={`/profile/blog/${post._id}`}className="btn btn-info text-light">Details</Link>
               <Link href={`/blog/edit/${post._id}`}className="btn btn-success text-light">update</Link>
               <Link href={`/blog/delete/${post._id}`}className="btn btn-danger text-light">Delete</Link>

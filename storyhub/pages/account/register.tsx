@@ -41,22 +41,46 @@ const RegisterPage: React.FC<RegisterPageProps> = ({ apiUrl }) => {
   return (
     <div>
       <h1>Register</h1>
-      <form>
-        <div>
-          <label htmlFor="username">Username:</label>
-          <input type="text" id="username" name="username" value={registerFormData.username} onChange={handleChange} />
-        </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input type="password" id="password" name="password" value={registerFormData.password} onChange={handleChange} />
-        </div>
-        <div>
-          <label htmlFor="confirmPassword">Confirm Password:</label>
-          <input type="password" id="confirmPassword" name="confirmPassword" value={registerFormData.confirmPassword} onChange={handleChange} />
-        </div>
-        <button type="button" onClick={handleRegister}>Register</button>
-        <Link href={'/account/login'}>Login</Link>
-      </form>
+      (
+    <form>
+      <div className="mb-3">
+        <label htmlFor="username" className="form-label">Username:</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          value={registerFormData.username}
+          onChange={handleChange}
+          className="form-control"
+        />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="password" className="form-label">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          value={registerFormData.password}
+          onChange={handleChange}
+          className="form-control"
+        />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="confirmPassword" className="form-label">Confirm Password:</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          name="confirmPassword"
+          value={registerFormData.confirmPassword}
+          onChange={handleChange}
+          className="form-control"
+        />
+      </div>
+      <button type="button" onClick={handleRegister} className="btn btn-primary">
+        Register
+      </button>
+      <Link href="/account/login" className="btn btn-link">Login</Link>
+    </form>
     </div>
   );
 };

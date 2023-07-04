@@ -62,30 +62,35 @@ const LoginForm = ({ onLogin, apiUrl }: { onLogin: () => void , apiUrl: string})
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            value={loginData.username}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={loginData.password}
-            onChange={handleChange}
-          />
-        </div>
-        <button type="submit" disabled={isSubmitting}>Login</button>
-        <Link href={'/account/register'}>Register</Link>
-      </form>
+       (
+    <form onSubmit={handleSubmit}>
+      <div className="mb-3">
+        <label htmlFor="username" className="form-label">Username:</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          value={loginData.username}
+          onChange={handleChange}
+          className="form-control"
+        />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="password" className="form-label">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          value={loginData.password}
+          onChange={handleChange}
+          className="form-control"
+        />
+      </div>
+      <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
+        Login
+      </button>
+      <Link href="/account/register" className="btn btn-link">Register</Link>
+    </form>
     </>
   );
 };

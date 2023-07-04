@@ -37,7 +37,7 @@ const BlogIndex: React.FC<{ apiUrl: string }> = ({ apiUrl }) => {
           <div className="card bg-dark mb-3">
             <div className="card-body">
                 <h5 className="card-title text-light">{post.title}</h5>
-              <p className="card-text text-light">{post.desc.split('.').slice(0, 3).join('.')}</p>
+              <p className="card-text text-secondary">{post.desc.split('.').slice(0, 3).join('.')}</p>
               <Link href={`/blog/${post._id}`}className="btn btn-info text-light">Read more</Link>
             </div>
           </div>
