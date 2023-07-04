@@ -11,7 +11,12 @@ interface UpdateProfileForm {
   repeatNewPassword: string;
 }
 
-const UpdateAccount: React.FC<{ apiUrl: string }> = ({ apiUrl })=> {
+interface LogoutPageProps {
+  onLogout: () => void;
+  apiUrl: string;
+}
+
+const UpdateAccount: React.FC<LogoutPageProps> = ({ apiUrl, onLogout })=> {
   const router = useRouter()
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [updateFormData, setUpdateFormData] = useState<UpdateProfileForm>({
@@ -48,6 +53,7 @@ const UpdateAccount: React.FC<{ apiUrl: string }> = ({ apiUrl })=> {
     try {
       await axios.delete(`${apiUrl}/accounts/profile/delete`, { withCredentials: true });
       router.push('/blog');
+      onLogout()
     } catch (error) {
       console.error(error);
       // Show error message or handle the error
