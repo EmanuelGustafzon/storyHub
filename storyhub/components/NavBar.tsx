@@ -1,4 +1,5 @@
-import React from 'react';
+'use client'
+import React, { useState } from 'react';
 import Link from 'next/link';
 
 interface NavbarProps {
@@ -6,13 +7,28 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ isLoggedIn }) => {
+  const [isNavOpen, setIsNavOpen] = useState(false);
+
+  const handleToggleNav = () => {
+    setIsNavOpen(!isNavOpen);
+  };
+
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary bg-light">
       <div className="container-fluid">
         <Link className="nav-link" href="/" passHref>
           Home
         </Link>
-        <div className=" navbar-collapse" id="navbarNav">
+        <button
+          className="navbar-toggler"
+          type="button"
+          onClick={handleToggleNav}
+          aria-expanded={isNavOpen}
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className={`collapse navbar-collapse ${isNavOpen ? 'show' : ''}`} id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
               <Link className="nav-link" href="/blog" passHref>
@@ -47,3 +63,4 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn }) => {
 };
 
 export default Navbar;
+
