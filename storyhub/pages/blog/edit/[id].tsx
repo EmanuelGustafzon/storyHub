@@ -103,6 +103,7 @@ const EditPage: React.FC<{ apiUrl: string }> = ({ apiUrl }) => {
 
   return (
     <>
+    <div className='container'>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="title" className="form-label">Title:</label>
@@ -173,6 +174,7 @@ const EditPage: React.FC<{ apiUrl: string }> = ({ apiUrl }) => {
         </button>
         <Link href={`/profile`} className="btn btn-info text-light">Back</Link>
       </form>
+      </div>
     </>
   );  
 };

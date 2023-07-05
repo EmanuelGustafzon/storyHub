@@ -77,6 +77,7 @@ const CreatePost: React.FC<{ apiUrl: string }> = ({ apiUrl }) => {
 
   return (
     <>
+    <div className='container'>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="title" className="form-label">Title:</label>
@@ -146,6 +147,7 @@ const CreatePost: React.FC<{ apiUrl: string }> = ({ apiUrl }) => {
           Create Post
         </button>
       </form>
+      </div>
     </>
   );
   

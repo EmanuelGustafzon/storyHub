@@ -66,7 +66,7 @@ const UpdateAccount: React.FC<LogoutPageProps> = ({ apiUrl, onLogout })=> {
 
   return (
     <>
-      <div>
+      <div className="container">
         <h1 className="mb-4">Update Profile</h1>
         <form>
           <div className="mb-3">
