@@ -50,8 +50,8 @@ const BlogPostPage: React.FC<{ apiUrl: string }> = ({ apiUrl }) => {
 
   return (
     <>
-      <div className="row">
-        <div className="col-md-4">
+      <div className="row container">
+        <div className="col-md-6">
           <div className="card bg-dark mb-3">
             <div className="card-body">
                 <h2 className="card-title text-light">{blogPost.title}</h2>

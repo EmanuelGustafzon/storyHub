@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../components/NavBar';
-import Image from 'next/image';
+import Link from 'next/link';
+
 
 const HomePage = ({ isLoggedIn }) => {
   return (
@@ -22,6 +23,11 @@ const HomePage = ({ isLoggedIn }) => {
             </p>
           </div>
         </div>
+        <button className='btn btn-info text-light'>
+          <Link className='btn' href="/blog" passHref>
+            Click here and explore the blog!
+          </Link>
+        </button>
       </div>
     </div>
   );

@@ -21,6 +21,7 @@ interface Profile {
 const ProfilePage: React.FC<{ apiUrl: string; isLoggedIn: boolean  }> = ({ apiUrl, isLoggedIn  }) => {
   const [profile, setProfile] = useState<Profile | null>(null);
   const router = useRouter();
+
   useEffect(() => {
     if (!isLoggedIn) {
       router.push('/login');
@@ -47,7 +48,7 @@ const ProfilePage: React.FC<{ apiUrl: string; isLoggedIn: boolean  }> = ({ apiUr
   }
   return (
     <>
-    <div>
+    <div className='container'>
       <h2>Welcome {profile.username}!</h2>
       <hr />
       <Link href={`/profile/updateAccount`}className="btn btn-info text-light"> Account settings </Link>

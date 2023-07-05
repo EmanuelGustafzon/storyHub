@@ -62,7 +62,7 @@ const LoginForm = ({ onLogin, apiUrl }: { onLogin: () => void , apiUrl: string})
 
   return (
     <>
-       (
+    <div className='container'>
     <form onSubmit={handleSubmit}>
       <div className="mb-3">
         <label htmlFor="username" className="form-label">Username:</label>
@@ -91,6 +91,7 @@ const LoginForm = ({ onLogin, apiUrl }: { onLogin: () => void , apiUrl: string})
       </button>
       <Link href="/account/register" className="btn btn-link">Register</Link>
     </form>
+    </div>
     </>
   );
 };

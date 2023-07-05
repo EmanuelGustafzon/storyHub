@@ -34,9 +34,9 @@ const handleLogout = async () => {
 
   return (
     <>
-    <div>
-      <h1>Logout Page</h1>
-      <button onClick={handleLogout}>Logout</button>
+    <div className='container'>
+      <h3>Are you sure you want to logout?</h3>
+      <button className='btn btn-info text-light' onClick={handleLogout}>Logout</button>
     </div>
     </>
   );

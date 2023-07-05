@@ -39,9 +39,8 @@ const RegisterPage: React.FC<RegisterPageProps> = ({ apiUrl }) => {
   };
 
   return (
-    <div>
+    <div className='container'>
       <h1>Register</h1>
-      (
     <form>
       <div className="mb-3">
         <label htmlFor="username" className="form-label">Username:</label>

@@ -6,7 +6,6 @@ const AppPage = () => {
 
   return (
     <div className='bg-light'>
-    <Navbar/>
       <HomePage />
     </div>
   );
