@@ -31,26 +31,26 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn }) => {
         <div className={`collapse navbar-collapse ${isNavOpen ? 'show' : ''}`} id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link className="nav-link" href="/blog" passHref>
+              <Link className="nav-link" onClick={handleToggleNav} href="/blog" passHref>
                 Blog
               </Link>
             </li>
             {isLoggedIn ? (
               <>
                 <li className="nav-item">
-                  <Link className="nav-link" href="/profile" passHref>
+                  <Link className="nav-link" onClick={handleToggleNav} href="/profile" passHref>
                     Profile
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" href="/account/logout" passHref>
+                  <Link className="nav-link" onClick={handleToggleNav} href="/account/logout" passHref>
                     Logout
                   </Link>
                 </li>
               </>
             ) : (
               <li className="nav-item">
-                <Link className="nav-link" href="/account/login" passHref>
+                <Link className="nav-link" onClick={handleToggleNav} href="/account/login" passHref>
                   Login
                 </Link>
               </li>
