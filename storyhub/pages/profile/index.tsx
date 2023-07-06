@@ -43,7 +43,7 @@ const ProfilePage: React.FC<{ apiUrl: string; isLoggedIn: boolean  }> = ({ apiUr
 
   
 
-  if (!profile) {
+  if (!profile || !profile.posts) {
     return <div>Loading...</div>;
   }
   return (
